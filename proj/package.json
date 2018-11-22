@@ -1,0 +1,27 @@
+{
+  "name": "datagrid",
+  "version": "1.0.0",
+  "description": "A React Datagrid that handles 100.000 rows",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "React"
+  ],
+  "author": "Jules Vautier",
+  "license": "MIT",
+  "dependencies": {
+    "@types/react": "^16.7.7",
+    "@types/react-dom": "^16.0.10",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "webpack": "^4.26.0"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.1.6",
+    "webpack-cli": "^3.1.2"
+  }
+}
