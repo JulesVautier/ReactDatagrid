@@ -1,8 +1,8 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import Button from "./components/button";
+import Datagrid from "./components/Datagrid";
 
 ReactDOM.render(
-  <Button name="World" />,
+  <Datagrid name="World" href="localhost:8080/data"/>,
   document.getElementById("root")
 );
