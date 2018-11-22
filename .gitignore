@@ -71,3 +71,7 @@ proj/yarn\.lock
 proj/README\.md
 
 proj/LICENSE
+
+api/yarn\.lock
+
+api/package-lock\.json
