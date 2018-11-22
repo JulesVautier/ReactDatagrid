@@ -1,13 +1,15 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "target": "es5",
-    "jsx": "react"
-  },
-  "include": [
-    "./src/**/*"
-  ]
+    "compilerOptions": {
+        "jsx": "react",
+        "sourceMap": true,
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "outDir": "./build/",
+        "preserveConstEnums": true,
+        "removeComments": true,
+        "target": "ES5"
+    },
+    "exclude": [
+        "node_modules"
+    ]
 }

@@ -1,33 +1,43 @@
-module.exports = {
-    entry: "./src/index.tsx",
+var path = require("path");
+
+var config = {
+
+    /* The entry point of the application. Webpack uses this information to
+    create the dependency tree which is used to bundle the scripts.*/
+    entry: ["./app/index.tsx"],
+
+    /* This information is used to give the name of the bundled file and the
+    location of the bundled file. */
     output: {
-        filename: "bundle.js",
-        path: __dirname + "/dist"
+        path: path.resolve(__dirname, "build"),
+        publicPath: "/build/",
+        filename: "bundle.js"
     },
 
-    // Enable sourcemaps for debugging webpack's output.
-    devtool: "source-map",
-
+    /*  The extensions which will be imported or required in the application
+    scripts. */
     resolve: {
-        // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        extensions: [".ts", ".tsx", ".js"]
     },
 
     module: {
-        rules: [
-            // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
-            { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-
-            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-            { enforce: "pre", test: /\.js$/, loader: "source-map-loader" }
-        ]
+        rules: [{
+            enforce: 'pre',
+            test: /\.tsx?$/,
+            use: "source-map-loader",
+            exclude: /node_modules/
+        },{
+            test: /\.tsx?$/,
+            loader: "ts-loader",
+            exclude: /node_modules/
+        }],
+        /*
+         * Define the loaders to be used. Regex will test the type of files on
+         * which the loader is to be applied. The excluded files are also mentioned.
+         * Loaders are used mainly to transpile the file before bundling.
+         */
     },
-    // When importing a module whose path matches one of the following, just
-    // assume a corresponding global variable exists and use that instead.
-    // This is important because it allows us to avoid bundling all of our
-    // dependencies, which allows browsers to cache those libraries between builds.
-    externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
-    }
+    devtool: 'inline-source-map',
 };
+
+module.exports = config;
